@@ -1,7 +1,7 @@
-struct node {int i; struct node * next}
+struct node {int i; struct node * next;};
 
 
-void print_list (stuct node *);
+void print_list (struct node *);
 
 struct node * insert_front (struct node *, int val);
 

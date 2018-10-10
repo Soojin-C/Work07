@@ -9,22 +9,20 @@ void print_list (struct node * pointer){
   while (pointer != NULL){
 
     printf("%d |", pointer->i);
-    pointer++;
-
-    printf("NULL")
+    pointer = (pointer -> next);
   }
+
+   printf("NULL\n");
        
 }
 
 struct node * insert_front (struct node * pointer , int val){
 
-  struct node temp;
-  temp.i = val;
-  temp.next = pointer;
+  struct node * temp = malloc(sizeof(struct node));
+  temp -> i = val;
+  temp -> next = pointer;
 
-  pointer = &temp;
-
-  return pointer;
+  return temp;
   
 }
 
@@ -36,9 +34,21 @@ struct node * insert_front (struct node * pointer , int val){
 
 int main(){
 
-  struct node first = NULL;
-
+  struct node first;
+  struct node second;
   struct node * pointer = &first;
+
+  first.i = 1;
+  second.i = 2;
+  first.next = NULL;
+  second.next = pointer;
+
+  pointer = &second;
+
+  
+  print_list(pointer);
+  pointer = insert_front(pointer, 4);
+
   print_list(pointer);
   
 }

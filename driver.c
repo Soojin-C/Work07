@@ -6,14 +6,20 @@
 
 int main(){
 
-  struct node test = NULL;
-  struct node* pointer;
+  struct node first;
+  struct node * pointer = &first;
 
-  pointer = insert_front(pointer, 1);
-  pointer = insert_front(pointer, 2);
-  pointer = insert_front(pointer, 3);
+  first.i = 1;
+  first.next = NULL;
+  
+  print_list(pointer);
+  pointer = insert_front(pointer, 4);
 
-  print_list (pointer);
+  print_list(pointer);
 
+  pointer = free_list(pointer);
+
+  print_list(pointer);
+  
   return 0;
 }

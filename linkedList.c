@@ -26,29 +26,16 @@ struct node * insert_front (struct node * pointer , int val){
   
 }
 
-//struct node * free_list (struct node * pointer){
+struct node * free_list (struct node * pointer){
 
+  struct node * holder;
   
-  
-//}
+  while (holder -> next != NULL){
 
-int main(){
-
-  struct node first;
-  struct node second;
-  struct node * pointer = &first;
-
-  first.i = 1;
-  second.i = 2;
-  first.next = NULL;
-  second.next = pointer;
-
-  pointer = &second;
-
-  
-  print_list(pointer);
-  pointer = insert_front(pointer, 4);
-
-  print_list(pointer);
+    holder = pointer;
+    pointer = pointer -> next;
+    free(holder);
+    
+  }
   
 }

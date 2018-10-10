@@ -1,16 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linkedList.h"
 #include "linkedList.c"
 
 
 int main(){
 
-  struct node first;
-  struct node * pointer = &first;
+  struct node * pointer = malloc(sizeof(struct node));
 
-  first.i = 1;
-  first.next = NULL;
+  pointer -> i = 1;
+  pointer -> next = NULL;
   
   print_list(pointer);
   pointer = insert_front(pointer, 4);

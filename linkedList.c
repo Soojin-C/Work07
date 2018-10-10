@@ -37,5 +37,7 @@ struct node * free_list (struct node * pointer){
     free(holder);
     
   }
+
+  return holder;
   
 }

@@ -26,18 +26,23 @@ struct node * insert_front (struct node * pointer , int val){
   
 }
 
-struct node * free_list (struct node * pointer){
+struct node * free_list (struct node * curr){
 
-  struct node * holder;
+  struct node * prev = malloc(sizeof(struct node));
+  prev = curr;
+  curr = curr -> next;
   
-  while (holder -> next != NULL){
+  while (curr != NULL){
 
-    holder = pointer;
-    pointer = pointer -> next;
-    free(holder);
+    free(prev);
+    prev = curr;
+    curr = curr -> next;
     
   }
 
-  return holder;
+  free(prev);
+  prev = curr;
+
+  return prev;
   
 }
